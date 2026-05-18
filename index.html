@@ -18,44 +18,90 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(
+                -45deg,
+                #667eea,
+                #764ba2,
+                #6b8cff,
+                #9f5de2
+            );
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            overflow: hidden;
+        }
+
+        /* Animated background */
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .card {
-            background: #ffffff;
-            padding: 40px 50px;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 60px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
             text-align: center;
-            width: 320px;
-            transition: transform 0.3s ease;
+            width: 350px;
+            transition: all 0.4s ease;
+            animation: fadeIn 1.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
             font-size: 28px;
-            color: #333;
-            margin-bottom: 20px;
+            color: white;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         a {
             display: inline-block;
             margin-top: 15px;
             text-decoration: none;
-            background: #667eea;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
+            background: linear-gradient(135deg, #ffffff, #f1f1f1);
+            color: #667eea;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 700;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.25);
         }
 
         a:hover {
-            background: #5a67d8;
-            transform: scale(1.05);
+            transform: scale(1.08);
+            background: white;
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+        }
+
+        a:active {
+            transform: scale(0.96);
         }
     </style>
 </head>
@@ -64,7 +110,7 @@
 
     <div class="card">
         <h1>WELCOME TO MY PROFILE!</h1>
-       <a href="profile.html">Click here to proceed</a>
+        <a href="profile.html">Click here to proceed</a>
     </div>
 
 </body>
